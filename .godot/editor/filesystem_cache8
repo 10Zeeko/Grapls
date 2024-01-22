@@ -1,0 +1,15 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1705953302
+icon.svg::CompressedTexture2D::5055262206769810759::1705946657::1705946665::1::::<><>::
+::res://GameNodes/::1705948870
+::res://GameNodes/Player/::1705953302
+Player.tscn::PackedScene::3149253575026054243::1705953314::0::1::::<><>::res://Scripts/Player.gd<>uid://cea2ovbikc30v::::res://icon.svg<>res://Scripts/Camera2D.gd
+::res://Levels/::1705953252
+level_test.tscn::PackedScene::590503406830707935::1705953252::0::1::::<><>::uid://1n4wkx2ur0ci::::res://Sprites/Tiles/tiles_packed.png<>uid://bk4r0mxmdh132::::res://GameNodes/Player/Player.tscn
+::res://Scripts/::1705953311
+Camera2D.gd::GDScript::-1::1705953135::0::1::::<>Camera2D<>::
+Player.gd::GDScript::-1::1705953252::0::1::::<>CharacterBody2D<>::
+::res://Scripts/Player/::1705953311
+::res://Sprites/::1705946689
+::res://Sprites/Tiles/::1705946689
+tiles_packed.png::CompressedTexture2D::1853547487665937560::1705946687::1705946689::1::::<><>::
