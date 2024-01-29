@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk4r0mxmdh132"]
+[gd_scene load_steps=6 format=3 uid="uid://bk4r0mxmdh132"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_3xkhi"]
 [ext_resource type="Texture2D" uid="uid://cea2ovbikc30v" path="res://icon.svg" id="1_t5o3r"]
 [ext_resource type="Script" path="res://Scripts/Player/Camera2D.gd" id="3_qv2u3"]
+[ext_resource type="PackedScene" uid="uid://b6vx2yqsr2bbh" path="res://GameNodes/Player/arm.tscn" id="4_khwel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1cnf"]
 size = Vector2(32, 32)
@@ -19,3 +20,5 @@ shape = SubResource("RectangleShape2D_u1cnf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_qv2u3")
+
+[node name="Arm" parent="." instance=ExtResource("4_khwel")]
