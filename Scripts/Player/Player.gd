@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-
-const SPEED = 300.0
+const SPEED = 600.0
 const MAX_SPEED = 1000
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 50
@@ -25,13 +24,29 @@ func _physics_process(delta):
 	velocity.y += GRAVITY
 	
 	if $Arm.hooked:
-		arm_velocity = to_local($Arm.tip).normalized() * ARM_PULL
+		var direction = 0
+		if Input.is_action_pressed("up"):
+			direction = 1
+			$Arm.grappling_distance -= 5  # Decrease the grappling distance
+		elif Input.is_action_pressed("down"):
+			direction = -1
+			$Arm.grappling_distance += 5  # Increase the grappling distance
+		arm_velocity = to_local($Arm.tip).normalized() * ARM_PULL * direction
 		if arm_velocity.y > 0:
 			arm_velocity.y *= 0.55
 		else:
 			arm_velocity.y *= 1.65
 		if sign(arm_velocity.x) != sign(move):
 			arm_velocity *= 0.7
+		# Limit the distance between the player and the grappling hook
+		var distance = position.distance_to($Arm.tip)
+		if distance > $Arm.grappling_distance:
+			var direction_to_hook = ($Arm.tip - position).normalized()
+			position += direction_to_hook * (distance - $Arm.grappling_distance)
+			# Apply a force that simulates the tension of the rope
+			var angle = ($Arm.tip - position).angle_to(Vector2.UP)
+			var tension = GRAVITY * cos(angle)
+			velocity += tension * direction_to_hook
 	else:
 		arm_velocity = Vector2(0, 0)
 	velocity += arm_velocity

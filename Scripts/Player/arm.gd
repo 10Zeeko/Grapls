@@ -8,6 +8,7 @@ const SPEED = 50
 
 var flying = false
 var hooked = false
+var grappling_distance = 0.0
 
 func shoot(dir: Vector2):
 	direction = dir.normalized()
@@ -34,4 +35,5 @@ func _physics_process(delta):
 		if $Tip.move_and_collide(direction * SPEED):
 			hooked = true
 			flying = false
+			grappling_distance = $Tip.position.distance_to(get_parent().get_parent().position)
 		tip = $Tip.global_position
