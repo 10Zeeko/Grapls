@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxlv3rw4hle1s"]
+
+[ext_resource type="Script" path="res://GameNodes/Player/player_controller.gd" id="1_4pjk5"]
+[ext_resource type="Texture2D" uid="uid://cea2ovbikc30v" path="res://icon.svg" id="1_pnmlq"]
+[ext_resource type="Script" path="res://Scripts/Player/Camera2D.gd" id="3_nad11"]
+[ext_resource type="PackedScene" uid="uid://b6vx2yqsr2bbh" path="res://GameNodes/Player/arm.tscn" id="4_vrdh2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kp85l"]
+size = Vector2(32, 32)
+
+[node name="PlayerController" type="RigidBody2D"]
+script = ExtResource("1_4pjk5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_pnmlq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kp85l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_nad11")
+
+[node name="Arm" parent="." instance=ExtResource("4_vrdh2")]

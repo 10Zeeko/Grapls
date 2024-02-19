@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://iobrfudxo128"]
 
 [ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://Sprites/Tiles/tiles_packed.png" id="1_14omo"]
-[ext_resource type="PackedScene" uid="uid://bk4r0mxmdh132" path="res://GameNodes/Player/Player.tscn" id="2_xtm5s"]
+[ext_resource type="PackedScene" uid="uid://dxlv3rw4hle1s" path="res://GameNodes/Player/player_controller.tscn" id="2_vqhfh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2eue3"]
 texture = ExtResource("1_14omo")
@@ -572,5 +572,5 @@ tile_set = SubResource("TileSet_kxb87")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 131072, 0, -65535, 131072, 0, -65534, 131072, 0, -65533, 131072, 0, -65532, 131072, 0, -65531, 131072, 0, -65530, 131072, 0, -65529, 131072, 0, -65528, 131072, 0, -65527, 131072, 0, -65526, 131072, 0, -65525, 131072, 0, -65524, 131072, 0, -65523, 131072, 0, -65522, 131072, 0, -65521, 196608, 0, -1, 131072, 0, -2, 131072, 0, -3, 131072, 0, -4, 131072, 0, -5, 131072, 0, -6, 131072, 0, -7, 131072, 0, -8, 131072, 0, -9, 131072, 0, -10, 65536, 0, -655370, 65536, 0, -655369, 131072, 0, -655368, 131072, 0, -655367, 131072, 0, -655366, 131072, 0, -655365, 131072, 0, -655364, 131072, 0, -655363, 131072, 0, -655362, 131072, 0, -655361, 131072, 0, -720896, 131072, 0, -720895, 131072, 0, -720894, 131072, 0, -720893, 131072, 0, -720892, 131072, 0, -720891, 131072, 0, -720890, 131072, 0, -720889, 131072, 0, -720888, 131072, 0, -720887, 131072, 0, -720886, 131072, 0, -720885, 131072, 0, -720884, 131072, 0, -720883, 131072, 0, -720882, 131072, 0, -720881, 196608, 0)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_xtm5s")]
-position = Vector2(41, -122)
+[node name="PlayerController" parent="." instance=ExtResource("2_vqhfh")]
+position = Vector2(26, -93)

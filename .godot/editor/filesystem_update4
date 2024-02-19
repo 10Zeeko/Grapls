@@ -1,5 +1,2 @@
-res://Levels/level_test.tscn
-res://GameNodes/Player/Player.tscn
 res://GameNodes/Player/arm.tscn
-res://Scripts/Player/Player.gd
-res://Scripts/Player/arm.gd
+res://GameNodes/Player/player_controller.gd
