@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6vx2yqsr2bbh"]
+[gd_scene load_steps=6 format=3 uid="uid://b6vx2yqsr2bbh"]
 
 [ext_resource type="Script" path="res://Scripts/Player/arm.gd" id="1_agxu7"]
 [ext_resource type="Texture2D" uid="uid://m7ila58f4dvi" path="res://Sprites/Tiles/tile_0039.png" id="2_bbwv3"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wi06"]
 size = Vector2(11, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5decg"]
+radius = 5.0
 
 [node name="Arm" type="Node2D"]
 script = ExtResource("1_agxu7")
@@ -21,6 +24,11 @@ texture = ExtResource("2_bbwv3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_0wi06")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tip"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tip/StaticBody2D"]
+shape = SubResource("CircleShape2D_5decg")
 
 [node name="Rope" type="Line2D" parent="."]
 texture_repeat = 2

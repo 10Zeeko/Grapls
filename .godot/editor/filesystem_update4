@@ -1,2 +1,5 @@
+res://Levels/level_test.tscn
 res://GameNodes/Player/arm.tscn
+res://GameNodes/Player/player_controller.tscn
+res://test.tscn
 res://GameNodes/Player/player_controller.gd

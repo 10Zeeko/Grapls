@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://can1pb5w0uatr"]
+
+[ext_resource type="Texture2D" uid="uid://m7ila58f4dvi" path="res://Sprites/Tiles/tile_0039.png" id="1_2oncv"]
+[ext_resource type="Script" path="res://test.gd" id="1_7tijx"]
+[ext_resource type="Texture2D" uid="uid://cea2ovbikc30v" path="res://icon.svg" id="2_vwp2k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bi13i"]
+radius = 23.0217
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ge8i5"]
+radius = 21.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7tijx")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(500, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_bi13i")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_2oncv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(700, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_ge8i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_vwp2k")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2(500, 300)
+rotation = -1.5708
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../StaticBody2D")
+length = 200.0
+rest_length = 200.0
+stiffness = 64.0
