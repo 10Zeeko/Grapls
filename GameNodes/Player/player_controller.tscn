@@ -9,16 +9,21 @@
 radius = 16.0312
 
 [node name="PlayerController" type="RigidBody2D"]
+disable_mode = 2
 script = ExtResource("1_4pjk5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_pnmlq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CircleCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xbw5c")
 
 [node name="Arm" parent="." instance=ExtResource("4_vrdh2")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 script = ExtResource("3_nad11")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

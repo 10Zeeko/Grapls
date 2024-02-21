@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 @onready var arm = $Arm
+@onready var circle_collision = $CircleCollision
 @export var spring: PinJoint2D
 
 enum State {
@@ -16,11 +17,14 @@ var current_state = State.IDLE
 
 # Player speed
 var speed = 200
-var hook_force = 10
+
 # Jump force
 var jump_force = 300
 var speed_limit = 200
 var hook_speed_limit = 500
+
+# Hook
+var hook_force = 10
 
 func _physics_process(delta):
 	match current_state:
@@ -34,7 +38,9 @@ func _physics_process(delta):
 			grapling_state()
 		State.HOOKED:
 			hooked_state()
-
+		State.THROW:
+			throw_state()
+	print (current_state)
 	spring.position = $Arm/Tip/StaticBody2D.global_position
 
 func idle_state():
@@ -83,7 +89,7 @@ func hooked_state():
 	if not arm.hooked:
 		spring.node_a = NodePath()
 		spring.node_b = NodePath()
-		current_state = State.IDLE
+		current_state = State.THROW
 		arm.hooked = false
 	else:
 		# Check the direction of movement
@@ -93,7 +99,14 @@ func hooked_state():
 		elif Input.is_action_pressed('left'):
 			# Apply additional force to the left
 			self.apply_central_impulse(Vector2(-hook_force, 0))
-	
+			
+func throw_state():
+	if Input.is_action_pressed('right'):
+		# Apply additional force to the right
+		self.apply_central_impulse(Vector2(hook_force, 0))
+	elif Input.is_action_pressed('left'):
+		# Apply additional force to the left
+		self.apply_central_impulse(Vector2(-hook_force, 0))
 	
 func _input(event):
 	if event is InputEventMouseButton:
@@ -101,3 +114,8 @@ func _input(event):
 			arm.shoot(event.position - get_viewport().size * 0.5)
 		else:
 			arm.release()
+
+
+func _on_body_entered(body: PhysicsBody2D) -> void:
+	if current_state == State.THROW:
+		current_state = State.WALK

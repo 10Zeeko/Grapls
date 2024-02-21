@@ -8,7 +8,7 @@ const SPEED = 50
 
 var flying = false
 var hooked = false
-var grappling_distance = 0.0
+var hook_posible_distance = 600
 
 func shoot(dir: Vector2):
 	direction = dir.normalized()
@@ -22,6 +22,10 @@ func release():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
 	self.visible = flying or hooked
+	var hook_distance = $Tip.position.distance_to(get_parent().get_parent().position)
+	if hook_distance > hook_posible_distance:
+		self.visible = false
+		hooked = false
 	if not self.visible:
 		return
 	var tip_loc = to_local(tip)
@@ -35,5 +39,4 @@ func _physics_process(delta):
 		if $Tip.move_and_collide(direction * SPEED):
 			hooked = true
 			flying = false
-			grappling_distance = $Tip.position.distance_to(get_parent().get_parent().position)
 		tip = $Tip.global_position
