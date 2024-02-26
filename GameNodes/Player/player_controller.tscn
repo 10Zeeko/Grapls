@@ -1,27 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxlv3rw4hle1s"]
+[gd_scene load_steps=8 format=3 uid="uid://dxlv3rw4hle1s"]
 
 [ext_resource type="Script" path="res://GameNodes/Player/player_controller.gd" id="1_4pjk5"]
-[ext_resource type="Texture2D" uid="uid://cea2ovbikc30v" path="res://icon.svg" id="1_pnmlq"]
+[ext_resource type="Texture2D" uid="uid://dhqqka26f046k" path="res://Sprites/blue_body_circle.png" id="2_uoaqh"]
 [ext_resource type="Script" path="res://Scripts/Player/Camera2D.gd" id="3_nad11"]
 [ext_resource type="PackedScene" uid="uid://b6vx2yqsr2bbh" path="res://GameNodes/Player/arm.tscn" id="4_vrdh2"]
+[ext_resource type="Texture2D" uid="uid://k71hi6vv61qg" path="res://Sprites/face_a.png" id="5_gta6e"]
+[ext_resource type="Texture2D" uid="uid://2cxjg1juytwm" path="res://Sprites/blue_hand_open.png" id="6_ls3av"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xbw5c"]
-radius = 16.0312
+radius = 16.0
 
 [node name="PlayerController" type="RigidBody2D"]
 disable_mode = 2
+max_contacts_reported = 10
+contact_monitor = true
 script = ExtResource("1_4pjk5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_pnmlq")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_uoaqh")
 
 [node name="CircleCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xbw5c")
 
 [node name="Arm" parent="." instance=ExtResource("4_vrdh2")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="CanvasLayer" type="CanvasGroup" parent="."]
+top_level = true
+
+[node name="Face" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_gta6e")
+
+[node name="LeftHand" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(30, -5)
+rotation = 0.785398
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_ls3av")
+
+[node name="RightHand" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(-30, -5)
+rotation = -0.785398
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_ls3av")
+flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 script = ExtResource("3_nad11")

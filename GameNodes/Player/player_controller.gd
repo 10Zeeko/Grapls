@@ -3,6 +3,9 @@ extends RigidBody2D
 @onready var arm = $Arm
 @onready var circle_collision = $CircleCollision
 @export var spring: PinJoint2D
+@onready var canvas_layer = $CanvasLayer
+@onready var left_hand = $CanvasLayer/LeftHand
+@onready var right_hand = $CanvasLayer/RightHand
 
 enum State {
 	IDLE,
@@ -40,8 +43,9 @@ func _physics_process(delta):
 			hooked_state()
 		State.THROW:
 			throw_state()
-	print (current_state)
+	#print (current_state)
 	spring.position = $Arm/Tip/StaticBody2D.global_position
+	canvas_layer.position = self.position
 
 func idle_state():
 	# Code for idle state
@@ -107,15 +111,24 @@ func throw_state():
 	elif Input.is_action_pressed('left'):
 		# Apply additional force to the left
 		self.apply_central_impulse(Vector2(-hook_force, 0))
+	if  arm.hooked:
+		current_state = State.GRAPLING
 	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			arm.shoot(event.position - get_viewport().size * 0.5)
+			var evShoot = event.position - get_viewport().size * 0.5
+			arm.shoot(evShoot)
+			if evShoot.normalized()[0] > 0:
+				left_hand.visible = false
+			else:
+				right_hand.visible = false
 		else:
 			arm.release()
+			right_hand.visible = true
+			left_hand.visible = true
 
 
-func _on_body_entered(body: PhysicsBody2D) -> void:
+func _on_body_entered(body) -> void:
 	if current_state == State.THROW:
 		current_state = State.WALK

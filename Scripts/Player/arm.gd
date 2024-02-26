@@ -12,6 +12,7 @@ var hook_posible_distance = 600
 
 func shoot(dir: Vector2):
 	direction = dir.normalized()
+	print (direction)
 	flying = true
 	tip = self.global_position
 

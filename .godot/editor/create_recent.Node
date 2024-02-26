@@ -1,8 +1,11 @@
+Timer
+CanvasGroup
+Sprite2D
+CanvasLayer
 DampedSpringJoint2D
 CharacterBody2D
 PinJoint2D
 GrooveJoint2D
-Sprite2D
 CollisionShape2D
 StaticBody2D
 RigidBody2D

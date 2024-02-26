@@ -1,7 +1,10 @@
-res://GameNodes/Player/player_controller.tscn
 res://Levels/level_test.tscn
 res://GameNodes/Player/arm.tscn
+res://GameNodes/Player/player_controller.tscn
 res://test.tscn
-res://Scripts/Player/Camera2D.gd
 res://GameNodes/Player/player_controller.gd
 res://Scripts/Player/arm.gd
+res://Tutorial_Level.tscn
+res://Levels/Tutorial_Level.tscn
+res://Levels/Tutorial_keys.gd
+res://Scripts/Player/Camera2D.gd
