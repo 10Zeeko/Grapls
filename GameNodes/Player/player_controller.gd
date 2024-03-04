@@ -17,6 +17,7 @@ enum State {
 }
 
 var current_state = State.IDLE
+var spawn_point = Vector2(0, -55)
 
 # Player speed
 var speed = 200
@@ -43,9 +44,11 @@ func _physics_process(delta):
 			hooked_state()
 		State.THROW:
 			throw_state()
-	#print (current_state)
+
 	spring.position = $Arm/Tip/StaticBody2D.global_position
 	canvas_layer.position = self.position
+	
+	player_fall()
 
 func idle_state():
 	# Code for idle state
@@ -113,6 +116,13 @@ func throw_state():
 		self.apply_central_impulse(Vector2(-hook_force, 0))
 	if  arm.hooked:
 		current_state = State.GRAPLING
+		
+func player_fall():
+	if (self.position[1] > 700):
+		restart_player()
+		
+func restart_player():
+	self.position = spawn_point
 	
 func _input(event):
 	if event is InputEventMouseButton:

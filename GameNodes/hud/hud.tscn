@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://luo2d88ffb0v"]
+
+[ext_resource type="Texture2D" uid="uid://dhqqka26f046k" path="res://Sprites/blue_body_circle.png" id="1_hkla4"]
+[ext_resource type="Script" path="res://Scripts/HUD/hud.gd" id="1_nrnea"]
+[ext_resource type="Texture2D" uid="uid://mknvxyp0afff" path="res://Sprites/face_f.png" id="2_i2qai"]
+[ext_resource type="FontFile" uid="uid://dhp2218uyku0x" path="res://GameNodes/hud/Kenney Thick.ttf" id="3_ec4lv"]
+[ext_resource type="Texture2D" uid="uid://b23tc7ifnegfg" path="res://Sprites/hud/hourglass.png" id="4_7lcg8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r333e"]
+font = ExtResource("3_ec4lv")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_8g462"]
+font = ExtResource("3_ec4lv")
+font_size = 34
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nrnea")
+
+[node name="Lives" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(30, 30)
+texture = ExtResource("1_hkla4")
+
+[node name="TextureRect" type="TextureRect" parent="Lives"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -16.5
+offset_right = 27.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i2qai")
+
+[node name="Label" type="Label" parent="Lives"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 18.91
+offset_top = -14.5
+offset_right = 58.91
+offset_bottom = 22.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "x"
+label_settings = SubResource("LabelSettings_r333e")
+
+[node name="LivesNumber" type="Label" parent="Lives/Label"]
+layout_direction = 2
+layout_mode = 0
+offset_left = 50.0
+offset_top = -7.0
+offset_right = 145.0
+offset_bottom = 30.0
+scale = Vector2(1.5, 1.5)
+text = "3"
+label_settings = SubResource("LabelSettings_r333e")
+
+[node name="Time" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(-30, 30)
+texture = ExtResource("4_7lcg8")
+
+[node name="TimerLabel" type="Label" parent="Time"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -188.93
+offset_top = -29.5
+offset_right = -64.93
+offset_bottom = 29.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_8g462")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
