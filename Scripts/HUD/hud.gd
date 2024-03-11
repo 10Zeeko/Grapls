@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var lives_number = $Lives/Label/LivesNumber
 @onready var timer_label = $Time/TimerLabel

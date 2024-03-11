@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxlv3rw4hle1s"]
+[gd_scene load_steps=9 format=3 uid="uid://dxlv3rw4hle1s"]
 
 [ext_resource type="Script" path="res://GameNodes/Player/player_controller.gd" id="1_4pjk5"]
 [ext_resource type="Texture2D" uid="uid://dhqqka26f046k" path="res://Sprites/blue_body_circle.png" id="2_uoaqh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6vx2yqsr2bbh" path="res://GameNodes/Player/arm.tscn" id="4_vrdh2"]
 [ext_resource type="Texture2D" uid="uid://k71hi6vv61qg" path="res://Sprites/face_a.png" id="5_gta6e"]
 [ext_resource type="Texture2D" uid="uid://2cxjg1juytwm" path="res://Sprites/blue_hand_open.png" id="6_ls3av"]
+[ext_resource type="PackedScene" uid="uid://luo2d88ffb0v" path="res://GameNodes/hud/hud.tscn" id="7_lcgfo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xbw5c"]
 radius = 16.0
@@ -49,5 +50,7 @@ flip_h = true
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 script = ExtResource("3_nad11")
+
+[node name="HUD" parent="CanvasLayer/Camera2D" instance=ExtResource("7_lcgfo")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

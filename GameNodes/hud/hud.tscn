@@ -14,13 +14,7 @@ font_size = 30
 font = ExtResource("3_ec4lv")
 font_size = 34
 
-[node name="HUD" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_nrnea")
 
 [node name="Lives" type="TextureRect" parent="."]
@@ -74,7 +68,6 @@ text = "3"
 label_settings = SubResource("LabelSettings_r333e")
 
 [node name="Time" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
