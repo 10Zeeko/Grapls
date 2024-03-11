@@ -10,4 +10,3 @@ func _input(event: InputEvent) -> void:
 			self.position = Vector2(0,0)
 		else:
 			self.position = _target.normalized() * (_target.length() - DEAD_ZONE) * DISTANCE
-		

@@ -6,6 +6,9 @@ extends RigidBody2D
 @onready var canvas_layer = $CanvasLayer
 @onready var left_hand = $CanvasLayer/LeftHand
 @onready var right_hand = $CanvasLayer/RightHand
+@onready var hud = $CanvasLayer/Camera2D/HUD
+
+signal update_lives(lives: int)
 
 enum State {
 	IDLE,
@@ -19,7 +22,8 @@ enum State {
 var current_state = State.IDLE
 var spawn_point = Vector2(0, -55)
 
-# Player speed
+# Player
+var lives = 3
 var speed = 200
 
 # Jump force
@@ -124,6 +128,9 @@ func player_fall():
 func restart_player():
 	self.position = spawn_point
 	
+	lives -= 1
+	update_lives.emit(lives)
+	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -138,6 +145,9 @@ func _input(event):
 			right_hand.visible = true
 			left_hand.visible = true
 
+func add_lives():
+	lives += 1
+	update_lives.emit(lives)
 
 func _on_body_entered(body) -> void:
 	if current_state == State.THROW:

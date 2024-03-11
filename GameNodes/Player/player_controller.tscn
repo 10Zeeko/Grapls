@@ -11,7 +11,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xbw5c"]
 radius = 16.0
 
-[node name="PlayerController" type="RigidBody2D"]
+[node name="PlayerController" type="RigidBody2D" groups=["player"]]
 disable_mode = 2
 max_contacts_reported = 10
 contact_monitor = true
@@ -54,3 +54,4 @@ script = ExtResource("3_nad11")
 [node name="HUD" parent="CanvasLayer/Camera2D" instance=ExtResource("7_lcgfo")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="update_lives" from="." to="CanvasLayer/Camera2D/HUD" method="_on_player_controller_update_lives"]
