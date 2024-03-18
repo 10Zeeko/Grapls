@@ -1,13 +1,9 @@
 res://Levels/Tutorial_Level.tscn
 res://GameNodes/Player/arm.tscn
 res://GameNodes/Player/player_controller.tscn
-res://test.tscn
-res://GameNodes/door.tscn
 res://GameNodes/hud/hud.tscn
-res://Scripts/HUD/hud.gd
-res://GameNodes/Player/player_controller.gd
-res://Scripts/Player/Camera2D.gd
 res://Levels/Level1.tscn
 res://GameNodes/pick_ups/heart_pick_up.tscn
-res://Scripts/door.gd
-res://Scripts/pick_ups/heart_pick_up.gd
+res://GameNodes/door.tscn
+res://GameNodes/parallax.tscn
+res://GameNodes/Player/player_controller.gd

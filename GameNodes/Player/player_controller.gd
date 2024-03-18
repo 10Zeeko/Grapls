@@ -7,6 +7,8 @@ extends RigidBody2D
 @onready var left_hand = $CanvasLayer/LeftHand
 @onready var right_hand = $CanvasLayer/RightHand
 @onready var hud = $CanvasLayer/Camera2D/HUD
+@onready var player_face = $CanvasLayer/Face
+
 
 signal update_lives(lives: int)
 
@@ -26,13 +28,21 @@ var spawn_point = Vector2(0, -55)
 var lives = 3
 var speed = 200
 
+#Player Face
+var happy_face: Texture2D
+@export var speed_face: Texture2D
+var speed_change = 550
+
 # Jump force
 var jump_force = 300
 var speed_limit = 200
-var hook_speed_limit = 500
+var hook_speed_limit = 700
 
 # Hook
 var hook_force = 10
+
+func _ready():
+	happy_face = player_face.texture
 
 func _physics_process(delta):
 	match current_state:
@@ -110,7 +120,11 @@ func hooked_state():
 		elif Input.is_action_pressed('left'):
 			# Apply additional force to the left
 			self.apply_central_impulse(Vector2(-hook_force, 0))
-			
+	if abs(linear_velocity.x) > speed_change or abs(linear_velocity.y) > speed_change:
+		player_face.texture = speed_face
+	else:
+		player_face.texture = happy_face
+
 func throw_state():
 	if Input.is_action_pressed('right'):
 		# Apply additional force to the right
@@ -120,6 +134,10 @@ func throw_state():
 		self.apply_central_impulse(Vector2(-hook_force, 0))
 	if  arm.hooked:
 		current_state = State.GRAPLING
+	if abs(linear_velocity.x) > speed_change or abs(linear_velocity.y) > speed_change:
+		player_face.texture = speed_face
+	else:
+		player_face.texture = happy_face
 		
 func player_fall():
 	if (self.position[1] > 700):
@@ -152,3 +170,4 @@ func add_lives():
 func _on_body_entered(body) -> void:
 	if current_state == State.THROW:
 		current_state = State.WALK
+		player_face.texture = happy_face

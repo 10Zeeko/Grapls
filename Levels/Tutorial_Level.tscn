@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://iobrfudxo128"]
+[gd_scene load_steps=22 format=3 uid="uid://iobrfudxo128"]
 
 [ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://Sprites/Tiles/tiles_packed.png" id="1_hoyse"]
 [ext_resource type="PackedScene" uid="uid://dxlv3rw4hle1s" path="res://GameNodes/Player/player_controller.tscn" id="2_rvoyb"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://6wqwkblrnhy4" path="res://GameNodes/door.tscn" id="14_8lca0"]
 [ext_resource type="PackedScene" uid="uid://bvajcvu058s8q" path="res://Levels/Level1.tscn" id="15_spv0r"]
 [ext_resource type="PackedScene" uid="uid://baqk4y3qytojr" path="res://GameNodes/pick_ups/heart_pick_up.tscn" id="18_ftai7"]
+[ext_resource type="PackedScene" uid="uid://cfk2vq8krs2va" path="res://GameNodes/parallax.tscn" id="19_dmhc8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2eue3"]
 texture = ExtResource("1_hoyse")
@@ -715,5 +716,7 @@ softness = 2.35
 
 [node name="HeartPickUp" parent="." instance=ExtResource("18_ftai7")]
 position = Vector2(191, -72)
+
+[node name="Parallax" parent="." instance=ExtResource("19_dmhc8")]
 
 [connection signal="timeout" from="Tutorial/SpaceTimer" to="Tutorial" method="_on_space_timer_timeout"]

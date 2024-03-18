@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvajcvu058s8q"]
+[gd_scene load_steps=8 format=3 uid="uid://bvajcvu058s8q"]
 
+[ext_resource type="PackedScene" uid="uid://cfk2vq8krs2va" path="res://GameNodes/parallax.tscn" id="5_1nvkt"]
 [ext_resource type="PackedScene" uid="uid://6wqwkblrnhy4" path="res://GameNodes/door.tscn" id="14_85idu"]
 [ext_resource type="PackedScene" uid="uid://can1pb5w0uatr" path="res://test.tscn" id="15_0ild8"]
 [ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://Sprites/Tiles/tiles_packed.png" id="16_m6fuh"]
@@ -636,3 +637,5 @@ spring = NodePath("../PinJoint2D")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 softness = 2.35
+
+[node name="Parallax" parent="." instance=ExtResource("5_1nvkt")]

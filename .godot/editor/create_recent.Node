@@ -1,4 +1,6 @@
 Sprite2D
+ParallaxLayer
+ParallaxBackground
 CollisionShape2D
 Area2D
 CanvasLayer
