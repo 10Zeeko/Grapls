@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://bvajcvu058s8q"]
 
-[ext_resource type="PackedScene" uid="uid://cfk2vq8krs2va" path="res://GameNodes/parallax.tscn" id="5_1nvkt"]
-[ext_resource type="PackedScene" uid="uid://6wqwkblrnhy4" path="res://GameNodes/door.tscn" id="14_85idu"]
+[ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://sprites/tiles/tiles_packed.png" id="3_t1a32"]
+[ext_resource type="PackedScene" uid="uid://cfk2vq8krs2va" path="res://game_nodes/parallax.tscn" id="5_1nvkt"]
+[ext_resource type="PackedScene" uid="uid://6wqwkblrnhy4" path="res://game_nodes/door.tscn" id="14_85idu"]
 [ext_resource type="PackedScene" uid="uid://can1pb5w0uatr" path="res://test.tscn" id="15_0ild8"]
-[ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://Sprites/Tiles/tiles_packed.png" id="16_m6fuh"]
-[ext_resource type="PackedScene" uid="uid://dxlv3rw4hle1s" path="res://GameNodes/Player/player_controller.tscn" id="17_4ohc6"]
+[ext_resource type="PackedScene" uid="uid://be0v33rvsk4ge" path="res://game_nodes/player/player_controller.tscn" id="17_4ohc6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2eue3"]
-texture = ExtResource("16_m6fuh")
+texture = ExtResource("3_t1a32")
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)

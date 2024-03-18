@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk4r0mxmdh132"]
+
+[ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_3xkhi"]
+[ext_resource type="Texture2D" uid="uid://cea2ovbikc30v" path="res://icon.svg" id="1_t5o3r"]
+[ext_resource type="Script" path="res://scripts/player/Camera2D.gd" id="3_qv2u3"]
+[ext_resource type="PackedScene" uid="uid://b6vx2yqsr2bbh" path="res://game_nodes/player/arm.tscn" id="4_khwel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1cnf"]
+size = Vector2(32, 32)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_3xkhi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_t5o3r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u1cnf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_qv2u3")
+
+[node name="Arm" parent="." instance=ExtResource("4_khwel")]

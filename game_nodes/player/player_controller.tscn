@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://be0v33rvsk4ge"]
+
+[ext_resource type="Script" path="res://game_nodes/player/player_controller.gd" id="1_ejmxd"]
+[ext_resource type="Texture2D" uid="uid://mknvxyp0afff" path="res://sprites/face_f.png" id="2_3y0ui"]
+[ext_resource type="Texture2D" uid="uid://dhqqka26f046k" path="res://sprites/blue_body_circle.png" id="3_cephx"]
+[ext_resource type="PackedScene" uid="uid://b6vx2yqsr2bbh" path="res://game_nodes/Player/arm.tscn" id="4_rr64d"]
+[ext_resource type="Texture2D" uid="uid://k71hi6vv61qg" path="res://sprites/face_a.png" id="5_8xaa1"]
+[ext_resource type="Texture2D" uid="uid://2cxjg1juytwm" path="res://sprites/blue_hand_open.png" id="6_bq6qu"]
+[ext_resource type="Script" path="res://scripts/player/Camera2D.gd" id="7_x5a7o"]
+[ext_resource type="PackedScene" uid="uid://luo2d88ffb0v" path="res://game_nodes/hud/hud.tscn" id="8_53nra"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xbw5c"]
+radius = 16.0
+
+[node name="PlayerController" type="RigidBody2D" groups=["player"]]
+disable_mode = 2
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_ejmxd")
+speed_face = ExtResource("2_3y0ui")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_cephx")
+
+[node name="CircleCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xbw5c")
+
+[node name="Arm" parent="." instance=ExtResource("4_rr64d")]
+
+[node name="CanvasLayer" type="CanvasGroup" parent="."]
+top_level = true
+
+[node name="Face" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_8xaa1")
+
+[node name="LeftHand" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(30, -5)
+rotation = 0.785398
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_bq6qu")
+
+[node name="RightHand" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(-30, -5)
+rotation = -0.785398
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_bq6qu")
+flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+script = ExtResource("7_x5a7o")
+
+[node name="HUD" parent="CanvasLayer/Camera2D" instance=ExtResource("8_53nra")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="update_lives" from="." to="CanvasLayer/Camera2D/HUD" method="_on_player_controller_update_lives"]

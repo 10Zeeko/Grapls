@@ -7,3 +7,9 @@ res://GameNodes/pick_ups/heart_pick_up.tscn
 res://GameNodes/door.tscn
 res://GameNodes/parallax.tscn
 res://GameNodes/Player/player_controller.gd
+res://levels/Tutorial_Level.tscn
+res://game_nodes/player/arm.tscn
+res://game_nodes/player/player_controller.tscn
+res://game_nodes/hud/hud.tscn
+res://game_nodes/pick_ups/heart_pick_up.tscn
+res://game_nodes/door.tscn

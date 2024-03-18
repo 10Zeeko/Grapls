@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhqqka26f046k"
-path="res://.godot/imported/blue_body_circle.png-7117b9a5120cd633691b7f01027c5193.ctex"
+path="res://.godot/imported/blue_body_circle.png-5b22b3555976e46966ab3c80c7090206.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/blue_body_circle.png"
-dest_files=["res://.godot/imported/blue_body_circle.png-7117b9a5120cd633691b7f01027c5193.ctex"]
+source_file="res://sprites/blue_body_circle.png"
+dest_files=["res://.godot/imported/blue_body_circle.png-5b22b3555976e46966ab3c80c7090206.ctex"]
 
 [params]
 
