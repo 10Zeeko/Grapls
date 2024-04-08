@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://be0v33rvsk4ge"]
+[gd_scene load_steps=10 format=3 uid="uid://be0v33rvsk4ge"]
 
 [ext_resource type="Script" path="res://game_nodes/player/player_controller.gd" id="1_ejmxd"]
 [ext_resource type="Texture2D" uid="uid://mknvxyp0afff" path="res://Sprites/face_f.png" id="2_3y0ui"]
-[ext_resource type="PackedScene" uid="uid://dbla7hx2mbkuw" path="res://Levels/main_menu.tscn" id="2_grqqb"]
 [ext_resource type="Texture2D" uid="uid://dhqqka26f046k" path="res://Sprites/blue_body_circle.png" id="3_cephx"]
 [ext_resource type="PackedScene" uid="uid://b6vx2yqsr2bbh" path="res://game_nodes/player/arm.tscn" id="4_rr64d"]
 [ext_resource type="Texture2D" uid="uid://k71hi6vv61qg" path="res://Sprites/face_a.png" id="5_8xaa1"]
@@ -18,7 +17,6 @@ disable_mode = 2
 max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_ejmxd")
-resource = ExtResource("2_grqqb")
 speed_face = ExtResource("2_3y0ui")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

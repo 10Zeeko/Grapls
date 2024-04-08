@@ -11,6 +11,7 @@ font_color = Color(0.45098, 0.564706, 0.917647, 1)
 
 [node name="Game End" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 50.0
@@ -49,3 +50,5 @@ text = "Exit Game"
 
 [node name="Parallax" parent="." instance=ExtResource("3_eo5f6")]
 position = Vector2(223.254, -155.766)
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
