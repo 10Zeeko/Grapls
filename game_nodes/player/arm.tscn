@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6vx2yqsr2bbh"]
 
 [ext_resource type="Script" path="res://scripts/player/arm.gd" id="1_8spwb"]
-[ext_resource type="Texture2D" uid="uid://nist63bjmpqh" path="res://sprites/blue_hand_closed.png" id="2_hhfq5"]
-[ext_resource type="Texture2D" uid="uid://dcuye76wrvxm1" path="res://sprites/tiles/trace_01_rotated.png" id="3_ctr48"]
+[ext_resource type="Texture2D" uid="uid://nist63bjmpqh" path="res://Sprites/blue_hand_closed.png" id="2_hhfq5"]
+[ext_resource type="Texture2D" uid="uid://dcuye76wrvxm1" path="res://Sprites/Tiles/trace_01_rotated.png" id="3_ctr48"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wi06"]
 size = Vector2(11, 16)

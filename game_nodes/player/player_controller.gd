@@ -8,6 +8,7 @@ extends RigidBody2D
 @onready var right_hand = $CanvasLayer/RightHand
 @onready var hud = $CanvasLayer/Camera2D/HUD
 @onready var player_face = $CanvasLayer/Face
+@export var resource : PackedScene
 
 
 signal update_lives(lives: int)
@@ -147,6 +148,8 @@ func restart_player():
 	self.position = spawn_point
 	
 	lives -= 1
+	if lives <= 0:
+		get_tree().change_scene_to_packed(resource)
 	update_lives.emit(lives)
 	
 func _input(event):

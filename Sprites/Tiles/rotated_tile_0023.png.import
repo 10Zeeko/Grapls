@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdsl80l8lmds2"
-path="res://.godot/imported/rotated_tile_0023.png-a1a4b77cf9e07bbf2283b8bcc9195d34.ctex"
+path="res://.godot/imported/rotated_tile_0023.png-2bc2316e6580ed7f4da4a97b9e13b31d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles/rotated_tile_0023.png"
-dest_files=["res://.godot/imported/rotated_tile_0023.png-a1a4b77cf9e07bbf2283b8bcc9195d34.ctex"]
+source_file="res://Sprites/Tiles/rotated_tile_0023.png"
+dest_files=["res://.godot/imported/rotated_tile_0023.png-2bc2316e6580ed7f4da4a97b9e13b31d.ctex"]
 
 [params]
 

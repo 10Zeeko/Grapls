@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://luo2d88ffb0v"]
 
 [ext_resource type="Script" path="res://scripts/hud/hud.gd" id="1_1uq0j"]
-[ext_resource type="Texture2D" uid="uid://dhqqka26f046k" path="res://sprites/blue_body_circle.png" id="2_h22i5"]
-[ext_resource type="Texture2D" uid="uid://mknvxyp0afff" path="res://sprites/face_f.png" id="3_d6ylo"]
+[ext_resource type="Texture2D" uid="uid://dhqqka26f046k" path="res://Sprites/blue_body_circle.png" id="2_h22i5"]
+[ext_resource type="Texture2D" uid="uid://mknvxyp0afff" path="res://Sprites/face_f.png" id="3_d6ylo"]
 [ext_resource type="FontFile" uid="uid://dhp2218uyku0x" path="res://game_nodes/hud/Kenney Thick.ttf" id="4_3rf6e"]
-[ext_resource type="Texture2D" uid="uid://b23tc7ifnegfg" path="res://sprites/hud/hourglass.png" id="5_4hcak"]
+[ext_resource type="Texture2D" uid="uid://b23tc7ifnegfg" path="res://Sprites/hud/hourglass.png" id="5_4hcak"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r333e"]
 font = ExtResource("4_3rf6e")

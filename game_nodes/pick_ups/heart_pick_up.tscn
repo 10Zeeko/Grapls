@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://baqk4y3qytojr"]
 
 [ext_resource type="Script" path="res://scripts/pick_ups/heart_pick_up.gd" id="1_l8woh"]
-[ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://sprites/tiles/tiles_packed.png" id="2_j7nch"]
+[ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://Sprites/Tiles/tiles_packed.png" id="2_j7nch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2408g"]
 

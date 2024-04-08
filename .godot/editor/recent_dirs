@@ -1,9 +1,6 @@
-res://GameNodes
-res://GameNodes/pick_ups
-res://GameNodes/hud
+res://Levels
+res://levels
 res://Scripts/HUD
 res://Scripts
 res://
-res://GameNodes/Player
 res://Scripts/Player
-res://Levels

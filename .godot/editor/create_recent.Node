@@ -1,3 +1,7 @@
+VBoxContainer
+Button
+Label
+HBoxContainer
 Sprite2D
 ParallaxLayer
 ParallaxBackground
@@ -7,7 +11,6 @@ CanvasLayer
 Control
 Timer
 TextureRect
-Label
 Container
 CanvasGroup
 DampedSpringJoint2D

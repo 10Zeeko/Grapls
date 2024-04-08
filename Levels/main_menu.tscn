@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbla7hx2mbkuw"]
+
+[ext_resource type="Script" path="res://Levels/main_menu.gd" id="1_5c4w4"]
+[ext_resource type="FontFile" uid="uid://dhp2218uyku0x" path="res://game_nodes/hud/Kenney Thick.ttf" id="1_ks38i"]
+[ext_resource type="PackedScene" uid="uid://iobrfudxo128" path="res://Levels/Tutorial_Level.tscn" id="2_anboh"]
+[ext_resource type="PackedScene" uid="uid://cfk2vq8krs2va" path="res://game_nodes/parallax.tscn" id="4_xp4rk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ud8m"]
+font = ExtResource("1_ks38i")
+font_size = 75
+font_color = Color(0.45098, 0.564706, 0.917647, 1)
+
+[node name="MainMenu" type="Control"]
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5c4w4")
+resource = ExtResource("2_anboh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Grapls"
+label_settings = SubResource("LabelSettings_6ud8m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+
+[node name="Play" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play"
+
+[node name="Exit" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[node name="Parallax" parent="." instance=ExtResource("4_xp4rk")]
+position = Vector2(223.254, -155.766)
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
