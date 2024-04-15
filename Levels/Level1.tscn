@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvajcvu058s8q"]
+[gd_scene load_steps=8 format=3 uid="uid://ctsog35cb8n5a"]
 
-[ext_resource type="PackedScene" uid="uid://cno7bbe5rm83k" path="res://Levels/game_end.tscn" id="2_es3pr"]
 [ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://Sprites/Tiles/tiles_packed.png" id="3_t1a32"]
 [ext_resource type="PackedScene" uid="uid://cfk2vq8krs2va" path="res://game_nodes/parallax.tscn" id="5_1nvkt"]
 [ext_resource type="PackedScene" uid="uid://baqk4y3qytojr" path="res://game_nodes/pick_ups/heart_pick_up.tscn" id="6_sv1ok"]
@@ -623,7 +622,7 @@ sources/0 = SubResource("TileSetAtlasSource_2eue3")
 
 [node name="Door" parent="." instance=ExtResource("14_85idu")]
 position = Vector2(2430, -92)
-resource = ExtResource("2_es3pr")
+resource = "res://levels/game_end.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(2, -13)

@@ -7,3 +7,7 @@ res://Levels/main_menu.tscn
 res://Levels/Tutorial_Level.tscn
 res://Levels/game_end.tscn
 res://levels/Tutorial_Level.tscn
+res://scripts/door.gd
+res://Levels/main_menu.gd
+res://game_nodes/player/player_controller.gd
+res://levels/Level1.tscn

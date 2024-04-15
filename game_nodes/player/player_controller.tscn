@@ -17,7 +17,10 @@ disable_mode = 2
 max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_ejmxd")
+game_over = "res://levels/main_menu.tscn"
 speed_face = ExtResource("2_3y0ui")
+
+[node name="Arm" parent="." instance=ExtResource("4_rr64d")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
@@ -25,8 +28,6 @@ texture = ExtResource("3_cephx")
 
 [node name="CircleCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xbw5c")
-
-[node name="Arm" parent="." instance=ExtResource("4_rr64d")]
 
 [node name="CanvasLayer" type="CanvasGroup" parent="."]
 top_level = true

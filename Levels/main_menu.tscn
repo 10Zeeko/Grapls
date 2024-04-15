@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbla7hx2mbkuw"]
+[gd_scene load_steps=10 format=3 uid="uid://dbla7hx2mbkuw"]
 
 [ext_resource type="Script" path="res://Levels/main_menu.gd" id="1_5c4w4"]
 [ext_resource type="FontFile" uid="uid://dhp2218uyku0x" path="res://game_nodes/hud/Kenney Thick.ttf" id="1_ks38i"]
-[ext_resource type="PackedScene" uid="uid://iobrfudxo128" path="res://Levels/Tutorial_Level.tscn" id="2_anboh"]
 [ext_resource type="PackedScene" uid="uid://cfk2vq8krs2va" path="res://game_nodes/parallax.tscn" id="4_xp4rk"]
+[ext_resource type="Texture2D" uid="uid://dhqqka26f046k" path="res://Sprites/blue_body_circle.png" id="5_8y13s"]
+[ext_resource type="Texture2D" uid="uid://dcuye76wrvxm1" path="res://Sprites/Tiles/trace_01_rotated.png" id="5_irbuy"]
+[ext_resource type="Texture2D" uid="uid://nist63bjmpqh" path="res://Sprites/blue_hand_closed.png" id="6_jqxnf"]
+[ext_resource type="Texture2D" uid="uid://mknvxyp0afff" path="res://Sprites/face_f.png" id="7_0g0li"]
+[ext_resource type="Texture2D" uid="uid://2cxjg1juytwm" path="res://Sprites/blue_hand_open.png" id="9_0qisa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ud8m"]
 font = ExtResource("1_ks38i")
@@ -23,7 +27,7 @@ offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5c4w4")
-resource = ExtResource("2_anboh")
+resource = "res://levels/Tutorial_Level.tscn"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_direction = 2
@@ -59,6 +63,32 @@ text = "Exit"
 
 [node name="Parallax" parent="." instance=ExtResource("4_xp4rk")]
 position = Vector2(223.254, -155.766)
+
+[node name="Rope" type="Line2D" parent="."]
+texture_repeat = 2
+points = PackedVector2Array(541, 352, 431, 78)
+width = 14.0
+texture = ExtResource("5_irbuy")
+texture_mode = 1
+
+[node name="BlueBodyCircle" type="Sprite2D" parent="."]
+position = Vector2(540, 354)
+texture = ExtResource("5_8y13s")
+
+[node name="BlueHandClosed" type="Sprite2D" parent="."]
+position = Vector2(431, 78)
+texture = ExtResource("6_jqxnf")
+
+[node name="FaceF" type="Sprite2D" parent="."]
+position = Vector2(541, 352)
+rotation = -0.408407
+texture = ExtResource("7_0g0li")
+
+[node name="BlueHandOpen" type="Sprite2D" parent="."]
+position = Vector2(467, 364)
+rotation = -1.78373
+texture = ExtResource("9_0qisa")
+flip_h = true
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
