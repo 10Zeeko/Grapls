@@ -1,13 +1,10 @@
 res://game_nodes/player/arm.tscn
+res://Levels/main_menu.gd
 res://game_nodes/player/player_controller.tscn
 res://game_nodes/door.tscn
 res://game_nodes/parallax.tscn
-res://Levels/Level1.tscn
 res://Levels/main_menu.tscn
 res://Levels/Tutorial_Level.tscn
 res://Levels/game_end.tscn
-res://levels/Tutorial_Level.tscn
-res://scripts/door.gd
-res://Levels/main_menu.gd
 res://game_nodes/player/player_controller.gd
-res://levels/Level1.tscn
+res://Levels/Level1.tscn

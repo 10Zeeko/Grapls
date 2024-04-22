@@ -1,3 +1,4 @@
+CanvasLayer
 VBoxContainer
 Button
 Label
@@ -7,7 +8,6 @@ ParallaxLayer
 ParallaxBackground
 CollisionShape2D
 Area2D
-CanvasLayer
 Control
 Timer
 TextureRect

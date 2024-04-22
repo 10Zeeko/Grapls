@@ -154,7 +154,11 @@ func restart_player():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			var evShoot = event.position - get_viewport().size * 0.5
+			var mouse_pos = Vector2(event.global_position.x, event.global_position.y)
+			var viewport_size =  Vector2(get_viewport().size.x, get_viewport().size.y)
+			var game_size = Vector2(1080, 720)  # replace with your game's actual size
+			var adjusted_mouse_pos = mouse_pos - (viewport_size - game_size) / 2
+			var evShoot = adjusted_mouse_pos - game_size * 0.5
 			arm.shoot(evShoot)
 			if evShoot.normalized()[0] > 0:
 				left_hand.visible = false
