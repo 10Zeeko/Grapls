@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://iobrfudxo128"]
+[gd_scene load_steps=22 format=3 uid="uid://iobrfudxo128"]
 
 [ext_resource type="Script" path="res://levels/Tutorial_keys.gd" id="1_388ih"]
 [ext_resource type="Texture2D" uid="uid://cd5yhb8epkrwt" path="res://Sprites/Controls/keyboard_a.png" id="2_n407t"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://Sprites/Tiles/tiles_packed.png" id="16_50i7l"]
 [ext_resource type="PackedScene" uid="uid://be0v33rvsk4ge" path="res://game_nodes/player/player_controller.tscn" id="17_idvqa"]
 [ext_resource type="PackedScene" uid="uid://baqk4y3qytojr" path="res://game_nodes/pick_ups/heart_pick_up.tscn" id="18_nsi1p"]
+[ext_resource type="PackedScene" uid="uid://grxqad3bb1w2" path="res://game_nodes/checkpoint.tscn" id="19_nqx8g"]
 [ext_resource type="PackedScene" uid="uid://cfk2vq8krs2va" path="res://game_nodes/parallax.tscn" id="19_wb47e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2eue3"]
@@ -717,5 +718,9 @@ softness = 2.35
 position = Vector2(191, -72)
 
 [node name="Parallax" parent="." instance=ExtResource("19_wb47e")]
+
+[node name="Checkpoint" parent="." instance=ExtResource("19_nqx8g")]
+z_index = -1
+position = Vector2(1474, -139)
 
 [connection signal="timeout" from="Tutorial/SpaceTimer" to="Tutorial" method="_on_space_timer_timeout"]

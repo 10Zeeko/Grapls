@@ -2,9 +2,13 @@ res://game_nodes/player/arm.tscn
 res://Levels/main_menu.gd
 res://game_nodes/player/player_controller.tscn
 res://game_nodes/door.tscn
-res://game_nodes/parallax.tscn
 res://Levels/main_menu.tscn
 res://Levels/Tutorial_Level.tscn
 res://Levels/game_end.tscn
-res://game_nodes/player/player_controller.gd
 res://Levels/Level1.tscn
+res://game_nodes/checkpoint.tscn
+res://scripts/door.gd
+res://game_nodes/pick_ups/heart_pick_up.tscn
+res://scripts/pick_ups/heart_pick_up.gd
+res://Scripts/checkpoint.gd
+res://game_nodes/player/player_controller.gd

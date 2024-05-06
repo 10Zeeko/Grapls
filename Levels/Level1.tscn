@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctsog35cb8n5a"]
+[gd_scene load_steps=9 format=3 uid="uid://ctsog35cb8n5a"]
 
 [ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://Sprites/Tiles/tiles_packed.png" id="3_t1a32"]
 [ext_resource type="PackedScene" uid="uid://cfk2vq8krs2va" path="res://game_nodes/parallax.tscn" id="5_1nvkt"]
+[ext_resource type="PackedScene" uid="uid://grxqad3bb1w2" path="res://game_nodes/checkpoint.tscn" id="6_d244j"]
 [ext_resource type="PackedScene" uid="uid://baqk4y3qytojr" path="res://game_nodes/pick_ups/heart_pick_up.tscn" id="6_sv1ok"]
 [ext_resource type="PackedScene" uid="uid://6wqwkblrnhy4" path="res://game_nodes/door.tscn" id="14_85idu"]
 [ext_resource type="PackedScene" uid="uid://be0v33rvsk4ge" path="res://game_nodes/player/player_controller.tscn" id="17_4ohc6"]
@@ -645,3 +646,9 @@ position = Vector2(825, -10)
 
 [node name="HeartPickUp2" parent="." instance=ExtResource("6_sv1ok")]
 position = Vector2(1759, -59)
+
+[node name="Checkpoint" parent="." instance=ExtResource("6_d244j")]
+position = Vector2(1163, -58)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("6_d244j")]
+position = Vector2(2000, -274)

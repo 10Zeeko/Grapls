@@ -57,6 +57,14 @@ click={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="terrain"
+2d_physics/layer_3="pick ups"
+2d_physics/layer_4="checkpoints"
+2d_physics/layer_5="doors"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

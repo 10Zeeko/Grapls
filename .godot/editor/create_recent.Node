@@ -1,3 +1,5 @@
+GPUParticles2D
+Timer
 CanvasLayer
 VBoxContainer
 Button
@@ -9,7 +11,6 @@ ParallaxBackground
 CollisionShape2D
 Area2D
 Control
-Timer
 TextureRect
 Container
 CanvasGroup

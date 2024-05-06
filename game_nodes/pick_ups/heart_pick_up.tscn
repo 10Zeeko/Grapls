@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2408g"]
 
 [node name="HeartPickUp" type="Area2D" groups=["pick_ups"]]
+collision_layer = 4
 script = ExtResource("1_l8woh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

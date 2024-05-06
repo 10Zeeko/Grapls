@@ -173,6 +173,9 @@ func add_lives():
 	lives += 1
 	update_lives.emit(lives)
 
+func update_spawn(pos):
+	spawn_point = pos
+
 func _on_body_entered(body) -> void:
 	if current_state == State.THROW:
 		current_state = State.WALK
