@@ -12,3 +12,4 @@ res://game_nodes/pick_ups/heart_pick_up.tscn
 res://scripts/pick_ups/heart_pick_up.gd
 res://Scripts/checkpoint.gd
 res://game_nodes/player/player_controller.gd
+res://Levels/Level2.tscn
