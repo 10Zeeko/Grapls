@@ -4,11 +4,13 @@ extends CanvasLayer
 @onready var timer_label = $Time/TimerLabel
 @onready var timer = $Timer
 
-var total_time = 0
+func _ready():
+	timer_label.text = str(PlayerStats.total_time)
+	lives_number.text = str(PlayerStats.player_lives)
 
 func _on_timer_timeout():
-	total_time += 1
-	timer_label.text = str(total_time)
+	PlayerStats.total_time += 1
+	timer_label.text = str(PlayerStats.total_time)
 	timer.start()
 
 func _on_player_controller_update_lives(lives: int):

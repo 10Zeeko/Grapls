@@ -25,7 +25,6 @@ var current_state = State.IDLE
 var spawn_point = Vector2(0, -55)
 
 # Player
-var lives = 3
 var speed = 200
 
 #Player Face
@@ -145,18 +144,19 @@ func player_fall():
 		
 func restart_player():
 	self.position = spawn_point
-	
-	lives -= 1
-	if lives <= 0:
+	self.linear_velocity.x = 0
+	self.linear_velocity.y = 0
+	PlayerStats.player_lives -= 1
+	if PlayerStats.player_lives <= 0:
 		get_tree().change_scene_to_file(game_over)
-	update_lives.emit(lives)
+	update_lives.emit(PlayerStats.player_lives)
 	
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.pressed:
+		if event.pressed and current_state != State.HOOKED:
 			var mouse_pos = Vector2(event.global_position.x, event.global_position.y)
 			var viewport_size =  Vector2(get_viewport().size.x, get_viewport().size.y)
-			var game_size = Vector2(1080, 720)  # replace with your game's actual size
+			var game_size = Vector2(1080, 720)
 			var adjusted_mouse_pos = mouse_pos - (viewport_size - game_size) / 2
 			var evShoot = adjusted_mouse_pos - game_size * 0.5
 			arm.shoot(evShoot)
@@ -170,8 +170,8 @@ func _input(event):
 			left_hand.visible = true
 
 func add_lives():
-	lives += 1
-	update_lives.emit(lives)
+	PlayerStats.player_lives += 1
+	update_lives.emit(PlayerStats.player_lives)
 
 func update_spawn(pos):
 	spawn_point = pos

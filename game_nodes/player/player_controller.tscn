@@ -24,6 +24,7 @@ speed_face = ExtResource("2_3y0ui")
 [node name="Arm" parent="." instance=ExtResource("4_rr64d")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_cephx")
 
@@ -32,6 +33,7 @@ shape = SubResource("CircleShape2D_xbw5c")
 
 [node name="CanvasLayer" type="CanvasGroup" parent="."]
 top_level = true
+z_index = 3
 
 [node name="Face" type="Sprite2D" parent="CanvasLayer"]
 scale = Vector2(0.4, 0.4)
