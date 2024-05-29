@@ -1,18 +1,38 @@
-[gd_scene load_steps=8 format=3 uid="uid://luo2d88ffb0v"]
+[gd_scene load_steps=11 format=3 uid="uid://luo2d88ffb0v"]
 
 [ext_resource type="Script" path="res://scripts/hud/hud.gd" id="1_1uq0j"]
 [ext_resource type="Texture2D" uid="uid://dhqqka26f046k" path="res://Sprites/blue_body_circle.png" id="2_h22i5"]
 [ext_resource type="Texture2D" uid="uid://mknvxyp0afff" path="res://Sprites/face_f.png" id="3_d6ylo"]
 [ext_resource type="FontFile" uid="uid://dhp2218uyku0x" path="res://game_nodes/hud/Kenney Thick.ttf" id="4_3rf6e"]
 [ext_resource type="Texture2D" uid="uid://b23tc7ifnegfg" path="res://Sprites/hud/hourglass.png" id="5_4hcak"]
+[ext_resource type="Shader" path="res://outline.gdshader" id="5_xrv4e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r333e"]
 font = ExtResource("4_3rf6e")
 font_size = 30
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qa2tr"]
+font = ExtResource("4_3rf6e")
+font_size = 24
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c2qmh"]
+shader = ExtResource("5_xrv4e")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 7.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8g462"]
 font = ExtResource("4_3rf6e")
 font_size = 34
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_1uq0j")
@@ -67,7 +87,18 @@ scale = Vector2(1.5, 1.5)
 text = "3"
 label_settings = SubResource("LabelSettings_r333e")
 
+[node name="LivesNumber2" type="Label" parent="Lives/Label"]
+layout_direction = 2
+offset_left = -42.91
+offset_top = 72.5
+offset_right = 52.09
+offset_bottom = 109.5
+scale = Vector2(1.5, 1.5)
+text = "8 m/s"
+label_settings = SubResource("LabelSettings_qa2tr")
+
 [node name="Time" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_c2qmh")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

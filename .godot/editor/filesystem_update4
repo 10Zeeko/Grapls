@@ -1,14 +1,6 @@
 res://game_nodes/player/arm.tscn
 res://Levels/main_menu.gd
-res://game_nodes/player/player_controller.tscn
-res://game_nodes/door.tscn
-res://Levels/Tutorial_Level.tscn
-res://Levels/Level1.tscn
-res://game_nodes/checkpoint.tscn
-res://Levels/Level2.tscn
-res://game_nodes/player/player_controller.gd
-res://Scripts/Player/player_stats.gd
-res://game_nodes/hud/hud.tscn
-res://scripts/hud/hud.gd
-res://Levels/game_end.tscn
 res://outline.gdshader
+res://game_nodes/player/player_controller.tscn
+res://game_nodes/hud/hud.tscn
+res://Levels/game_end.tscn
