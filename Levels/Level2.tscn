@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx8qrivm0wah0"]
+[gd_scene load_steps=10 format=3 uid="uid://dx8qrivm0wah0"]
 
 [ext_resource type="PackedScene" uid="uid://6wqwkblrnhy4" path="res://game_nodes/door.tscn" id="1_ef055"]
 [ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://Sprites/Tiles/tiles_packed.png" id="2_sq7ms"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cfk2vq8krs2va" path="res://game_nodes/parallax.tscn" id="4_wx7uh"]
 [ext_resource type="PackedScene" uid="uid://baqk4y3qytojr" path="res://game_nodes/pick_ups/heart_pick_up.tscn" id="5_srk5g"]
 [ext_resource type="PackedScene" uid="uid://grxqad3bb1w2" path="res://game_nodes/checkpoint.tscn" id="6_c1jl7"]
+[ext_resource type="AudioStream" uid="uid://1ugd68raakdd" path="res://Sounds/Music/Farm Frolics.ogg" id="7_wq0hj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2eue3"]
 texture = ExtResource("2_sq7ms")
@@ -623,7 +624,7 @@ sources/0 = SubResource("TileSetAtlasSource_2eue3")
 
 [node name="Door" parent="." instance=ExtResource("1_ef055")]
 position = Vector2(1122, -1387)
-resource = "res://levels/game_end.tscn"
+resource = "res://Levels/game_end.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(2, -13)
@@ -650,3 +651,7 @@ position = Vector2(44, -1381)
 
 [node name="HeartPickUp2" parent="." instance=ExtResource("5_srk5g")]
 position = Vector2(625, -1555)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wq0hj")
+autoplay = true

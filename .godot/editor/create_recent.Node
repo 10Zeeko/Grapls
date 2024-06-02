@@ -1,3 +1,6 @@
+AudioStreamPlayer
+AudioStreamPlayer2D
+RayCast2D
 GPUParticles2D
 Timer
 CanvasLayer
@@ -9,18 +12,3 @@ Sprite2D
 ParallaxLayer
 ParallaxBackground
 CollisionShape2D
-Area2D
-Control
-TextureRect
-Container
-CanvasGroup
-DampedSpringJoint2D
-CharacterBody2D
-PinJoint2D
-GrooveJoint2D
-StaticBody2D
-RigidBody2D
-Camera2D
-Line2D
-RayCast2D
-TileMap

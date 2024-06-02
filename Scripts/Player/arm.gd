@@ -3,6 +3,7 @@ extends Node2D
 @onready var rope = $Rope
 var direction := Vector2(0, 0)
 var tip := Vector2(0, 0)
+@onready var audio_stream_player = $AudioStreamPlayer
 
 const SPEED = 50
 
@@ -37,6 +38,7 @@ func _physics_process(delta):
 	$Tip.global_position = tip
 	if flying:
 		if $Tip.move_and_collide(direction * SPEED):
+			audio_stream_player.play()
 			hooked = true
 			flying = false
 		tip = $Tip.global_position

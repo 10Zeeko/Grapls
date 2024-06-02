@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbla7hx2mbkuw"]
+[gd_scene load_steps=11 format=3 uid="uid://dbla7hx2mbkuw"]
 
 [ext_resource type="Script" path="res://Levels/main_menu.gd" id="1_5c4w4"]
 [ext_resource type="FontFile" uid="uid://dhp2218uyku0x" path="res://game_nodes/hud/Kenney Thick.ttf" id="1_ks38i"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://nist63bjmpqh" path="res://Sprites/blue_hand_closed.png" id="6_jqxnf"]
 [ext_resource type="Texture2D" uid="uid://mknvxyp0afff" path="res://Sprites/face_f.png" id="7_0g0li"]
 [ext_resource type="Texture2D" uid="uid://2cxjg1juytwm" path="res://Sprites/blue_hand_open.png" id="9_0qisa"]
+[ext_resource type="AudioStream" uid="uid://1ugd68raakdd" path="res://Sounds/Music/Farm Frolics.ogg" id="9_ffayw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ud8m"]
 font = ExtResource("1_ks38i")
@@ -27,7 +28,7 @@ offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5c4w4")
-resource = "res://levels/Tutorial_Level.tscn"
+resource = "res://Levels/Tutorial_Level.tscn"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_direction = 2
@@ -89,6 +90,10 @@ position = Vector2(467, 364)
 rotation = -1.78373
 texture = ExtResource("9_0qisa")
 flip_h = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ffayw")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

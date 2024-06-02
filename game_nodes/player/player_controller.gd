@@ -9,6 +9,8 @@ extends RigidBody2D
 @onready var hud = $CanvasLayer/Camera2D/HUD
 @onready var player_face = $CanvasLayer/Face
 @export var game_over : String
+@onready var jump_audio = $JumpAudio
+@onready var ray_cast_2d = $RayCast2D
 
 signal update_lives(lives: int)
 
@@ -64,16 +66,16 @@ func _physics_process(delta):
 	player_fall()
 
 func idle_state():
-	# Code for idle state
 	if Input.is_action_pressed('right') or Input.is_action_pressed('left'):
 		current_state = State.WALK
-	elif Input.is_action_just_pressed('jump'):
+	elif Input.is_action_just_pressed('jump') and is_on_ground():
+		print("Jumping from IDLE")
 		current_state = State.JUMP
+		jump_audio.play()
 	elif arm.hooked:
 		current_state = State.GRAPLING
 
 func walk_state():
-	# Code for walk state
 	var velocity = Vector2.ZERO
 
 	if Input.is_action_pressed('right'):
@@ -81,26 +83,26 @@ func walk_state():
 	if Input.is_action_pressed('left'):
 		velocity.x -= speed
 
-	# Apply horizontal movement
 	if self.linear_velocity.x <= speed_limit or self.linear_velocity.x >= speed_limit:
 		self.linear_velocity.x = velocity.x
 
-	if Input.is_action_just_pressed('jump'):
+	if Input.is_action_just_pressed('jump') and is_on_ground():
+		print("Jumping from WALK")
 		current_state = State.JUMP
+		jump_audio.play()
 	elif not Input.is_action_pressed('right') and not Input.is_action_pressed('left'):
 		current_state = State.IDLE
 	elif arm.hooked:
 		current_state = State.GRAPLING
 
 func jump_state():
-	# Code for jump state
+	print("In JUMP state")
 	self.linear_velocity.y = -jump_force
 	current_state = State.IDLE
 
 func grapling_state():
 	spring.node_a = $Arm/Tip/StaticBody2D.get_path()
 	spring.node_b = self.get_path()
-	
 	current_state = State.HOOKED
 	
 func hooked_state():
@@ -112,12 +114,9 @@ func hooked_state():
 		current_state = State.THROW
 		arm.hooked = false
 	else:
-		# Check the direction of movement
 		if Input.is_action_pressed('right'):
-			# Apply additional force to the right
 			self.apply_central_impulse(Vector2(hook_force, 0))
 		elif Input.is_action_pressed('left'):
-			# Apply additional force to the left
 			self.apply_central_impulse(Vector2(-hook_force, 0))
 	if abs(linear_velocity.x) > speed_change or abs(linear_velocity.y) > speed_change:
 		player_face.texture = speed_face
@@ -126,12 +125,10 @@ func hooked_state():
 
 func throw_state():
 	if Input.is_action_pressed('right'):
-		# Apply additional force to the right
 		self.apply_central_impulse(Vector2(hook_force, 0))
 	elif Input.is_action_pressed('left'):
-		# Apply additional force to the left
 		self.apply_central_impulse(Vector2(-hook_force, 0))
-	if  arm.hooked:
+	if arm.hooked:
 		current_state = State.GRAPLING
 	if abs(linear_velocity.x) > speed_change or abs(linear_velocity.y) > speed_change:
 		player_face.texture = speed_face
@@ -139,13 +136,12 @@ func throw_state():
 		player_face.texture = happy_face
 		
 func player_fall():
-	if (self.position[1] > 700):
+	if self.position[1] > 700:
 		restart_player()
 		
 func restart_player():
 	self.position = spawn_point
-	self.linear_velocity.x = 0
-	self.linear_velocity.y = 0
+	self.linear_velocity = Vector2.ZERO
 	PlayerStats.player_lives -= 1
 	if PlayerStats.player_lives <= 0:
 		get_tree().change_scene_to_file(game_over)
@@ -155,7 +151,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and current_state != State.HOOKED:
 			var mouse_pos = Vector2(event.global_position.x, event.global_position.y)
-			var viewport_size =  Vector2(get_viewport().size.x, get_viewport().size.y)
+			var viewport_size = Vector2(get_viewport().size.x, get_viewport().size.y)
 			var game_size = Vector2(1080, 720)
 			var adjusted_mouse_pos = mouse_pos - (viewport_size - game_size) / 2
 			var evShoot = adjusted_mouse_pos - game_size * 0.5
@@ -176,7 +172,12 @@ func add_lives():
 func update_spawn(pos):
 	spawn_point = pos
 
+func is_on_ground() -> bool:
+	var on_ground = ray_cast_2d.is_colliding()
+	print("Is on ground: ", on_ground)
+	return on_ground
+
 func _on_body_entered(body) -> void:
 	if current_state == State.THROW:
-		current_state = State.WALK
+		current_state = State.IDLE
 		player_face.texture = happy_face

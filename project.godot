@@ -11,16 +11,22 @@ config_version=5
 [application]
 
 config/name="Grapls"
-run/main_scene="res://levels/main_menu.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+run/main_scene="res://Levels/main_menu.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PlayerStats="*res://Scripts/Player/player_stats.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
+window/size/viewport_width=1080
+window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 

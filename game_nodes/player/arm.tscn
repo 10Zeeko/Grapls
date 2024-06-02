@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6vx2yqsr2bbh"]
+[gd_scene load_steps=7 format=3 uid="uid://b6vx2yqsr2bbh"]
 
-[ext_resource type="Script" path="res://scripts/player/arm.gd" id="1_8spwb"]
+[ext_resource type="Script" path="res://Scripts/Player/arm.gd" id="1_77f53"]
 [ext_resource type="Texture2D" uid="uid://nist63bjmpqh" path="res://Sprites/blue_hand_closed.png" id="2_hhfq5"]
 [ext_resource type="Texture2D" uid="uid://dcuye76wrvxm1" path="res://Sprites/Tiles/trace_01_rotated.png" id="3_ctr48"]
+[ext_resource type="AudioStream" uid="uid://bg0qidtq1ea1v" path="res://Sounds/hit.ogg" id="4_e066d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wi06"]
 size = Vector2(11, 16)
@@ -11,7 +12,7 @@ size = Vector2(11, 16)
 radius = 5.0
 
 [node name="Arm" type="Node2D"]
-script = ExtResource("1_8spwb")
+script = ExtResource("1_77f53")
 
 [node name="Tip" type="CharacterBody2D" parent="."]
 collision_layer = 32
@@ -40,3 +41,6 @@ points = PackedVector2Array(0, 0, 0, 0)
 width = 14.0
 texture = ExtResource("3_ctr48")
 texture_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_e066d")

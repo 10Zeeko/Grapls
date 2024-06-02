@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://baqk4y3qytojr"]
+[gd_scene load_steps=5 format=3 uid="uid://baqk4y3qytojr"]
 
-[ext_resource type="Script" path="res://scripts/pick_ups/heart_pick_up.gd" id="1_l8woh"]
+[ext_resource type="Script" path="res://Scripts/pick_ups/heart_pick_up.gd" id="1_l8woh"]
 [ext_resource type="Texture2D" uid="uid://1n4wkx2ur0ci" path="res://Sprites/Tiles/tiles_packed.png" id="2_j7nch"]
+[ext_resource type="AudioStream" uid="uid://j08w0afnc71n" path="res://Sounds/1up.ogg" id="3_v84jc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2408g"]
 
@@ -17,5 +18,8 @@ texture = ExtResource("2_j7nch")
 hframes = 20
 vframes = 9
 frame = 44
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_v84jc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
