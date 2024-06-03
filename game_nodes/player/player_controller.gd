@@ -59,7 +59,11 @@ func _physics_process(delta):
 			hooked_state()
 		State.THROW:
 			throw_state(delta)
-
+	if Input.is_action_just_pressed('dash'):
+		if Input.is_action_pressed('right'):
+			self.apply_central_impulse(Vector2(750, 0))
+		elif Input.is_action_pressed('left'):
+			self.apply_central_impulse(Vector2(-750, 0))
 	spring.position = $Arm/Tip/StaticBody2D.global_position
 	canvas_layer.position = self.position
 	

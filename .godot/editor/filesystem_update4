@@ -6,4 +6,5 @@ res://Levels/Level1.tscn
 res://Levels/Level2.tscn
 res://Levels/Tutorial_Level.tscn
 res://game_nodes/player/player_controller.tscn
+res://game_nodes/parallax.tscn
 res://game_nodes/player/player_controller.gd
