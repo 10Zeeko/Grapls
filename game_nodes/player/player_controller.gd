@@ -58,7 +58,7 @@ func _physics_process(delta):
 		State.HOOKED:
 			hooked_state()
 		State.THROW:
-			throw_state()
+			throw_state(delta)
 
 	spring.position = $Arm/Tip/StaticBody2D.global_position
 	canvas_layer.position = self.position
@@ -69,7 +69,6 @@ func idle_state():
 	if Input.is_action_pressed('right') or Input.is_action_pressed('left'):
 		current_state = State.WALK
 	elif Input.is_action_just_pressed('jump') and is_on_ground():
-		print("Jumping from IDLE")
 		current_state = State.JUMP
 		jump_audio.play()
 	elif arm.hooked:
@@ -86,8 +85,7 @@ func walk_state():
 	if self.linear_velocity.x <= speed_limit or self.linear_velocity.x >= speed_limit:
 		self.linear_velocity.x = velocity.x
 
-	if Input.is_action_just_pressed('jump') and is_on_ground():
-		print("Jumping from WALK")
+	if Input.is_action_just_pressed('jump'):
 		current_state = State.JUMP
 		jump_audio.play()
 	elif not Input.is_action_pressed('right') and not Input.is_action_pressed('left'):
@@ -96,9 +94,8 @@ func walk_state():
 		current_state = State.GRAPLING
 
 func jump_state():
-	print("In JUMP state")
 	self.linear_velocity.y = -jump_force
-	current_state = State.IDLE
+	current_state = State.THROW
 
 func grapling_state():
 	spring.node_a = $Arm/Tip/StaticBody2D.get_path()
@@ -123,17 +120,19 @@ func hooked_state():
 	else:
 		player_face.texture = happy_face
 
-func throw_state():
+func throw_state(delta: float):
+	var velocity = self.linear_velocity
 	if Input.is_action_pressed('right'):
-		self.apply_central_impulse(Vector2(hook_force, 0))
-	elif Input.is_action_pressed('left'):
-		self.apply_central_impulse(Vector2(-hook_force, 0))
+		velocity.x += speed * delta
+	if Input.is_action_pressed('left'):
+		velocity.x -= speed * delta
 	if arm.hooked:
 		current_state = State.GRAPLING
 	if abs(linear_velocity.x) > speed_change or abs(linear_velocity.y) > speed_change:
 		player_face.texture = speed_face
 	else:
 		player_face.texture = happy_face
+	self.linear_velocity.x = velocity.x
 		
 func player_fall():
 	if self.position[1] > 700:
